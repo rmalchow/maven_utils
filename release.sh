@@ -15,6 +15,7 @@ if [ ! -f pom.xml ]; then
    false
 fi
 
+project=$(current_project)
 curr=$(current_version)
 
 rel=$(to_release $curr)
@@ -39,4 +40,7 @@ mvn deploy
 
 mvn --batch-mode versions:set -DnewVersion=$dev
 git add . && git commit -m "[ci-skip] release finish" && git push
+
+cd ~/maven
+git add . && git commit -m "[ci-skip] new release $rel of $project" && git push
 

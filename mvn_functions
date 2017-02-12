@@ -2,6 +2,10 @@ function current_version() {
 	mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version |grep "^[0-9]"
 }
 
+function current_project() {
+        mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.name |grep -v "^\[" |grep -v "^Downloading"
+}
+
 
 function to_release() {
     echo "$1" | sed s:"[^0-9.]":"":g
