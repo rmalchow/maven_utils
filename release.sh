@@ -40,9 +40,8 @@ fi
 git add . && git commit -m "[ci-skip] release prepare $rel" && git push
 
 mvn --batch-mode versions:set -DnewVersion=$rel
+mvn deploy
 git tag -a $rel -m "[ci-skip] release $rel" && git push origin $rel
-
-mvn deploy 
 
 mvn --batch-mode versions:set -DnewVersion=$dev
 git add . && git commit -m "[ci-skip] release finish" && git push
