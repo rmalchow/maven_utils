@@ -1,0 +1,28 @@
+function current_version() {
+	mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version |grep "^[0-9]"
+}
+
+
+function to_release() {
+    echo "$1" | sed s:"[^0-9.]":"":g
+}
+
+# Advances the last number of the given version string by one.
+function next_snapshot() {
+    components=`echo "$1" | sed s:"[^0-9.]":"":g| sed s:"\.":" ":g`
+    i=0
+    for c in $components; do
+        a[i]=$c
+	let "i++"
+    done
+    d=${a[2]}
+    let "d++"
+    a[2]=$d
+    echo "${a[0]}.${a[1]}.${a[2]}-SNAPSHOT"
+}
+
+#export -f current_version
+#export -f to_release
+#export -f next_snapshot
+
+
