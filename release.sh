@@ -44,7 +44,7 @@ mvn deploy
 git tag -a $rel -m "[ci-skip] release $rel" && git push origin $rel
 
 mvn --batch-mode versions:set -DnewVersion=$dev
-git add . && git commit -m "[ci-skip] release finish" && git push
+git add . && git commit -m "[ci-skip] release ($rel) finished, prepare for development ... " && git push
 
 cd ~/maven
 git add . && git commit -m "[ci-skip] new release $rel of $project" && git push
