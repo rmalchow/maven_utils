@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#
+# this is an example script. it does a basic build, deployment and tagging of 
+# maven project. why not the maven deploy plugin, you ask? well ... i find it
+# isn't flexible enough, and it also is quite difficult to debug.
+#
+
 func=$(dirname $0)/mvn_functions
 . ${func}
 
