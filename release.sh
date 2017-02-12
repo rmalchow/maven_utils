@@ -27,7 +27,7 @@ curr=$(current_version)
 rel=$(to_release $curr)
 dev=$(next_snapshot $rel)
 
-echo -n "$curr - $rel - $dev - OK? [y/n]: "
+echo -n "PROJECT: $project --- $curr - $rel - $dev - OK? [y/n]: "
 read check
 
 if [ "$check" = "y" ]; then
