@@ -1,1 +1,3 @@
 # maven_utils
+
+jsut some useful snippets for automating maven builds ... 
